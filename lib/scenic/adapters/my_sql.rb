@@ -71,9 +71,9 @@ module Scenic
         SQL
 
         graph = Hash.new { |h, k| h[k] = [] }
-        result.each_with_object(graph) do |row, memo|
+        result.each_with_object(graph) { |row, memo|
           memo[row[result.fields.index('View')]] << row[result.fields.index('Dependency')]
-        end
+        }
       end
 
       # returns a list of views in the current database

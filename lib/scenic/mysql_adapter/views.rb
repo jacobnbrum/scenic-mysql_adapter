@@ -18,9 +18,9 @@ module Scenic
       alias :tsort_each_node each
 
       private def tsort_each_child(node)
-        @graph[node.name].each do |child_name|
+        @graph[node.name].each { |child_name|
           yield(@views.find { |v| v.name == child_name })
-        end
+        }
       end
     end
   end
